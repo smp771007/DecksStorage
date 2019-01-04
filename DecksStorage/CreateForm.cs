@@ -52,7 +52,8 @@ namespace DecksStorage
         private void Analysis(string content)
         {
             //1:Name(名稱), 2:Class(職業), 3:Format(模式)
-            var match = Regex.Match(content, "###(.*)\n# (?:.*: )(.*)\n# (?:.*: )(.*)\n");
+            var match = Regex.Match(content, "### (.*)\n# (?:.*(?:: |：))(.*)\n# (?:.*(?:: |：))(.*)\n");
+
 
             if (!match.Success) return;
 

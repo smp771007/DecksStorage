@@ -32,29 +32,29 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuCreate = new System.Windows.Forms.ToolStripMenuItem();
-            this.dgvDeck = new System.Windows.Forms.DataGridView();
             this.操作ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuClearDecks = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Copy = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.txtSearchName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtSearchNote = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbSearchFormat = new System.Windows.Forms.ComboBox();
-            this.cbSearchClass = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.dgvDeck = new System.Windows.Forms.DataGridView();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.formatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Copy = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.deckBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbSearchClass = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbSearchFormat = new System.Windows.Forms.ComboBox();
+            this.txtSearchNote = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtSearchName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeck)).BeginInit();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.deckBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -70,6 +70,19 @@
             this.menuCreate.Name = "menuCreate";
             resources.ApplyResources(this.menuCreate, "menuCreate");
             this.menuCreate.Click += new System.EventHandler(this.menuCreate_Click);
+            // 
+            // 操作ToolStripMenuItem
+            // 
+            this.操作ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuClearDecks});
+            this.操作ToolStripMenuItem.Name = "操作ToolStripMenuItem";
+            resources.ApplyResources(this.操作ToolStripMenuItem, "操作ToolStripMenuItem");
+            // 
+            // menuClearDecks
+            // 
+            this.menuClearDecks.Name = "menuClearDecks";
+            resources.ApplyResources(this.menuClearDecks, "menuClearDecks");
+            this.menuClearDecks.Click += new System.EventHandler(this.menuClearDecks_Click);
             // 
             // dgvDeck
             // 
@@ -91,98 +104,6 @@
             this.dgvDeck.RowHeadersVisible = false;
             this.dgvDeck.RowTemplate.Height = 24;
             this.dgvDeck.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDeck_CellClick);
-            // 
-            // 操作ToolStripMenuItem
-            // 
-            this.操作ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuClearDecks});
-            this.操作ToolStripMenuItem.Name = "操作ToolStripMenuItem";
-            resources.ApplyResources(this.操作ToolStripMenuItem, "操作ToolStripMenuItem");
-            // 
-            // menuClearDecks
-            // 
-            this.menuClearDecks.Name = "menuClearDecks";
-            resources.ApplyResources(this.menuClearDecks, "menuClearDecks");
-            this.menuClearDecks.Click += new System.EventHandler(this.menuClearDecks_Click);
-            // 
-            // groupBox1
-            // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
-            this.groupBox1.Controls.Add(this.cbSearchClass);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.cbSearchFormat);
-            this.groupBox1.Controls.Add(this.txtSearchNote);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtSearchName);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
-            // 
-            // Copy
-            // 
-            resources.ApplyResources(this.Copy, "Copy");
-            this.Copy.Name = "Copy";
-            this.Copy.ReadOnly = true;
-            this.Copy.Text = "複製";
-            this.Copy.UseColumnTextForButtonValue = true;
-            // 
-            // Delete
-            // 
-            this.Delete.FillWeight = 20.61856F;
-            resources.ApplyResources(this.Delete, "Delete");
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Text = "刪除";
-            this.Delete.UseColumnTextForButtonValue = true;
-            // 
-            // txtSearchName
-            // 
-            resources.ApplyResources(this.txtSearchName, "txtSearchName");
-            this.txtSearchName.Name = "txtSearchName";
-            this.txtSearchName.TextChanged += new System.EventHandler(this.txtSearchName_TextChanged);
-            // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
-            // 
-            // txtSearchNote
-            // 
-            resources.ApplyResources(this.txtSearchNote, "txtSearchNote");
-            this.txtSearchNote.Name = "txtSearchNote";
-            this.txtSearchNote.TextChanged += new System.EventHandler(this.txtSearchNote_TextChanged);
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
-            // 
-            // cbSearchFormat
-            // 
-            this.cbSearchFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSearchFormat.FormattingEnabled = true;
-            resources.ApplyResources(this.cbSearchFormat, "cbSearchFormat");
-            this.cbSearchFormat.Name = "cbSearchFormat";
-            this.cbSearchFormat.SelectedIndexChanged += new System.EventHandler(this.cbSearchFormat_SelectedIndexChanged);
-            // 
-            // cbSearchClass
-            // 
-            this.cbSearchClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSearchClass.FormattingEnabled = true;
-            resources.ApplyResources(this.cbSearchClass, "cbSearchClass");
-            this.cbSearchClass.Name = "cbSearchClass";
-            this.cbSearchClass.SelectedIndexChanged += new System.EventHandler(this.cbSearchClass_SelectedIndexChanged);
-            // 
-            // label4
-            // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -221,9 +142,88 @@
             this.noteDataGridViewTextBoxColumn.ReadOnly = true;
             this.noteDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // Copy
+            // 
+            resources.ApplyResources(this.Copy, "Copy");
+            this.Copy.Name = "Copy";
+            this.Copy.ReadOnly = true;
+            this.Copy.Text = "複製";
+            this.Copy.UseColumnTextForButtonValue = true;
+            // 
+            // Delete
+            // 
+            this.Delete.FillWeight = 20.61856F;
+            resources.ApplyResources(this.Delete, "Delete");
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Text = "刪除";
+            this.Delete.UseColumnTextForButtonValue = true;
+            // 
             // deckBindingSource
             // 
             this.deckBindingSource.DataSource = typeof(DecksStorage.Models.Deck);
+            // 
+            // groupBox1
+            // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Controls.Add(this.cbSearchClass);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.cbSearchFormat);
+            this.groupBox1.Controls.Add(this.txtSearchNote);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtSearchName);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.TabStop = false;
+            // 
+            // cbSearchClass
+            // 
+            this.cbSearchClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSearchClass.FormattingEnabled = true;
+            resources.ApplyResources(this.cbSearchClass, "cbSearchClass");
+            this.cbSearchClass.Name = "cbSearchClass";
+            this.cbSearchClass.SelectedIndexChanged += new System.EventHandler(this.cbSearchClass_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
+            // 
+            // cbSearchFormat
+            // 
+            this.cbSearchFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSearchFormat.FormattingEnabled = true;
+            resources.ApplyResources(this.cbSearchFormat, "cbSearchFormat");
+            this.cbSearchFormat.Name = "cbSearchFormat";
+            this.cbSearchFormat.SelectedIndexChanged += new System.EventHandler(this.cbSearchFormat_SelectedIndexChanged);
+            // 
+            // txtSearchNote
+            // 
+            resources.ApplyResources(this.txtSearchNote, "txtSearchNote");
+            this.txtSearchNote.Name = "txtSearchNote";
+            this.txtSearchNote.TextChanged += new System.EventHandler(this.txtSearchNote_TextChanged);
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // txtSearchName
+            // 
+            resources.ApplyResources(this.txtSearchName, "txtSearchName");
+            this.txtSearchName.Name = "txtSearchName";
+            this.txtSearchName.TextChanged += new System.EventHandler(this.txtSearchName_TextChanged);
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
             // 
             // MainForm
             // 
@@ -234,12 +234,13 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deckBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.deckBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -18,6 +18,11 @@ namespace DecksStorage
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            Text = $"牌組儲藏室 {Settings.Version}";
 
             Self = this;
 
