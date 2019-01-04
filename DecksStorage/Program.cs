@@ -16,7 +16,16 @@ namespace DecksStorage
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            try
+            {
+                Application.Run(new MainForm());
+            }
+            catch (Exception ex)
+            {
+                var msg = $"{ex.Message} {ex}";
+                Clipboard.SetData(DataFormats.Text, $"{ex.Message} {ex}");
+                MessageBox.Show($"{ex.Message} {ex}");
+            }
         }
     }
 }
