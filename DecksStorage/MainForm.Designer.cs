@@ -35,7 +35,6 @@
             this.操作ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuClearDecks = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvDeck = new System.Windows.Forms.DataGridView();
-            this.deckBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbSearchClass = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,6 +44,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtSearchName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.deckBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.formatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,8 +53,8 @@
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeck)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deckBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deckBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -104,10 +104,6 @@
             this.dgvDeck.RowHeadersVisible = false;
             this.dgvDeck.RowTemplate.Height = 24;
             this.dgvDeck.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDeck_CellClick);
-            // 
-            // deckBindingSource
-            // 
-            this.deckBindingSource.DataSource = typeof(DecksStorage.Models.Deck);
             // 
             // groupBox1
             // 
@@ -170,6 +166,10 @@
             // 
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
+            // 
+            // deckBindingSource
+            // 
+            this.deckBindingSource.DataSource = typeof(DecksStorage.Models.Deck);
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -237,9 +237,9 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeck)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deckBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deckBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
