@@ -178,19 +178,19 @@
     <value>模式</value>
   </data>
   <data name="formatDataGridViewTextBoxColumn.MinimumWidth" type="System.Int32, mscorlib">
-    <value>60</value>
+    <value>70</value>
   </data>
   <data name="formatDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
-    <value>60</value>
+    <value>70</value>
   </data>
   <data name="classDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
     <value>職業</value>
   </data>
   <data name="classDataGridViewTextBoxColumn.MinimumWidth" type="System.Int32, mscorlib">
-    <value>60</value>
+    <value>70</value>
   </data>
   <data name="classDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
-    <value>60</value>
+    <value>70</value>
   </data>
   <data name="noteDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
     <value>備註</value>
@@ -205,10 +205,10 @@
     <value>複製</value>
   </data>
   <data name="Copy.MinimumWidth" type="System.Int32, mscorlib">
-    <value>60</value>
+    <value>70</value>
   </data>
   <data name="Copy.Width" type="System.Int32, mscorlib">
-    <value>60</value>
+    <value>70</value>
   </data>
   <metadata name="Delete.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -220,7 +220,7 @@
     <value>60</value>
   </data>
   <data name="Delete.Width" type="System.Int32, mscorlib">
-    <value>60</value>
+    <value>70</value>
   </data>
   <metadata name="deckBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>136, 17</value>
@@ -1642,6 +1642,12 @@
   <data name="&gt;&gt;menuClearDecks.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;deckBindingSource.Name" xml:space="preserve">
+    <value>deckBindingSource</value>
+  </data>
+  <data name="&gt;&gt;deckBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;nameDataGridViewTextBoxColumn.Name" xml:space="preserve">
     <value>nameDataGridViewTextBoxColumn</value>
   </data>
@@ -1677,12 +1683,6 @@
   </data>
   <data name="&gt;&gt;Delete.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;deckBindingSource.Name" xml:space="preserve">
-    <value>deckBindingSource</value>
-  </data>
-  <data name="&gt;&gt;deckBindingSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

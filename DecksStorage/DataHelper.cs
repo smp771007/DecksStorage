@@ -33,7 +33,7 @@ namespace DecksStorage
             UpdateDeck();
         }
 
-        private static void UpdateDeck()
+        internal static void UpdateDeck()
         {
             Properties.Settings.Default.Decks = JsonConvert.SerializeObject(Decks);
             Properties.Settings.Default.Save();

@@ -13,6 +13,9 @@ namespace DecksStorage
 {
     public partial class MainForm : Form
     {
+        private int _deckTableSortIndex = -1;
+        private bool _deckTableReverse = true;
+
         public static MainForm Self { get; set; }
 
         public MainForm()
@@ -116,19 +119,79 @@ namespace DecksStorage
         private void dgvDeck_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //標頭
-            if (e.RowIndex < 0) return;
+            if (e.RowIndex == -1)
+            {
+                DecksSort(e);
+                return;
+            };
 
             var deck = (Deck)dgvDeck.Rows[e.RowIndex].DataBoundItem;
 
-            switch (e.ColumnIndex)
+            switch ((DeckTableColumns)e.ColumnIndex)
             {
-                case 4: //複製
+                case DeckTableColumns.Copy: //複製
                     Clipboard.SetData(DataFormats.Text, deck.Content);
                     break;
-                case 5: //刪除
+                case DeckTableColumns.Delete: //刪除
                     DeleteDeck(deck);
                     break;
             }
+        }
+
+        /// <summary>
+        /// 牌組排序
+        /// </summary>
+        /// <param name="e"></param>
+        private void DecksSort(DataGridViewCellEventArgs e)
+        {
+            if (_deckTableSortIndex == e.ColumnIndex)
+            {
+                _deckTableReverse = !_deckTableReverse;
+            }
+            else
+            {
+                _deckTableReverse = true;
+            }
+
+            _deckTableSortIndex = e.ColumnIndex;
+
+            for (int i = 0; i < dgvDeck.ColumnCount; i++)
+            {
+                dgvDeck.Columns[i].HeaderText = string.Join("", dgvDeck.Columns[i].HeaderText.Where(x => x != '▼' && x != '▲'));
+
+                if (i == e.ColumnIndex)
+                {
+                    dgvDeck.Columns[i].HeaderText += _deckTableReverse ? "▼" : "▲";
+                }
+            }
+
+            switch ((DeckTableColumns)e.ColumnIndex)
+            {
+                case DeckTableColumns.Name: //名稱
+                    DataHelper.Decks = _deckTableReverse ?
+                        DataHelper.Decks.OrderByDescending(x => x.Name).ToList() :
+                        DataHelper.Decks.OrderBy(x => x.Name).ToList();
+                    break;
+                case DeckTableColumns.Format: //模式
+                    DataHelper.Decks = _deckTableReverse ?
+                        DataHelper.Decks.OrderByDescending(x => x.Format).ToList() :
+                        DataHelper.Decks.OrderBy(x => x.Format).ToList();
+                    break;
+                case DeckTableColumns.Class: //職業
+                    DataHelper.Decks = _deckTableReverse ?
+                        DataHelper.Decks.OrderByDescending(x => x.Class).ToList() :
+                        DataHelper.Decks.OrderBy(x => x.Class).ToList();
+                    break;
+                case DeckTableColumns.Note: //備註
+                    DataHelper.Decks = _deckTableReverse ?
+                        DataHelper.Decks.OrderByDescending(x => x.Note).ToList() :
+                        DataHelper.Decks.OrderBy(x => x.Note).ToList();
+                    break;
+                default:
+                    return;
+            }
+
+            DataHelper.UpdateDeck();
         }
 
         /// <summary>
@@ -175,6 +238,34 @@ namespace DecksStorage
         private void txtSearchNote_TextChanged(object sender, EventArgs e)
         {
             UpdateDeckView();
+        }
+
+        private enum DeckTableColumns
+        {
+            /// <summary>
+            /// 名稱
+            /// </summary>
+            Name,
+            /// <summary>
+            /// 模式
+            /// </summary>
+            Format,
+            /// <summary>
+            /// 職業
+            /// </summary>
+            Class,
+            /// <summary>
+            /// 備註
+            /// </summary>
+            Note,
+            /// <summary>
+            /// 複製
+            /// </summary>
+            Copy,
+            /// <summary>
+            /// 刪除
+            /// </summary>
+            Delete
         }
     }
 }
