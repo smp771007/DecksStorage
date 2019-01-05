@@ -34,5 +34,41 @@ namespace DecksStorage.Properties {
                 this["Decks"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
+        public global::System.Windows.Forms.FormWindowState MFState {
+            get {
+                return ((global::System.Windows.Forms.FormWindowState)(this["MFState"]));
+            }
+            set {
+                this["MFState"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point MFLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["MFLocation"]));
+            }
+            set {
+                this["MFLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Size MFSize {
+            get {
+                return ((global::System.Drawing.Size)(this["MFSize"]));
+            }
+            set {
+                this["MFSize"] = value;
+            }
+        }
     }
 }

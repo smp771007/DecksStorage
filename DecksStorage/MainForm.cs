@@ -20,13 +20,59 @@ namespace DecksStorage
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Form Load
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
             Text = $"牌組儲藏室 {Settings.Version}";
 
+            if (Properties.Settings.Default.MFSize.Width == 0 || Properties.Settings.Default.MFSize.Height == 0)
+            {
+                // first start
+                // optional: add default values
+            }
+            else
+            {
+                this.WindowState = Properties.Settings.Default.MFState;
+
+                // we don't want a minimized window at startup
+                if (this.WindowState == FormWindowState.Minimized) this.WindowState = FormWindowState.Normal;
+
+                this.Location = Properties.Settings.Default.MFLocation;
+                this.Size = Properties.Settings.Default.MFSize;
+            }
+
             Self = this;
 
             UpdateView();
+        }
+
+        /// <summary>
+        /// Form Closing
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.MFState = this.WindowState;
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                // save location and size if the state is normal
+                Properties.Settings.Default.MFLocation = this.Location;
+                Properties.Settings.Default.MFSize = this.Size;
+            }
+            else
+            {
+                // save the RestoreBounds if the form is minimized or maximized!
+                Properties.Settings.Default.MFLocation = this.RestoreBounds.Location;
+                Properties.Settings.Default.MFSize = this.RestoreBounds.Size;
+            }
+
+            // don't forget to save the settings
+            Properties.Settings.Default.Save();
         }
 
         /// <summary>
