@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthResizeFormTool.cs" />
     <Compile Include="CreateForm.cs">
       <SubType>Form</SubType>
     </Compile>

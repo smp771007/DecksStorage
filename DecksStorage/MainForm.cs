@@ -29,21 +29,12 @@ namespace DecksStorage
         {
             Text = $"牌組儲藏室 {Settings.Version}";
 
-            if (Properties.Settings.Default.MFSize.Width == 0 || Properties.Settings.Default.MFSize.Height == 0)
-            {
-                // first start
-                // optional: add default values
-            }
-            else
-            {
-                this.WindowState = Properties.Settings.Default.MFState;
-
-                // we don't want a minimized window at startup
-                if (this.WindowState == FormWindowState.Minimized) this.WindowState = FormWindowState.Normal;
-
-                this.Location = Properties.Settings.Default.MFLocation;
-                this.Size = Properties.Settings.Default.MFSize;
-            }
+            //設定視窗位置
+            AuthResizeFormTool.Set(
+                this,
+                Properties.Settings.Default.MFSize,
+                Properties.Settings.Default.MFState,
+                Properties.Settings.Default.MFLocation);
 
             Self = this;
 
@@ -57,21 +48,11 @@ namespace DecksStorage
         /// <param name="e"></param>
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Properties.Settings.Default.MFState = this.WindowState;
-            if (this.WindowState == FormWindowState.Normal)
-            {
-                // save location and size if the state is normal
-                Properties.Settings.Default.MFLocation = this.Location;
-                Properties.Settings.Default.MFSize = this.Size;
-            }
-            else
-            {
-                // save the RestoreBounds if the form is minimized or maximized!
-                Properties.Settings.Default.MFLocation = this.RestoreBounds.Location;
-                Properties.Settings.Default.MFSize = this.RestoreBounds.Size;
-            }
+            var output = AuthResizeFormTool.Get(this);
+            Properties.Settings.Default.MFState = output.State;
+            Properties.Settings.Default.MFLocation = output.Location;
+            Properties.Settings.Default.MFSize = output.Size;
 
-            // don't forget to save the settings
             Properties.Settings.Default.Save();
         }
 
