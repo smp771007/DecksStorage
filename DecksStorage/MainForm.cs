@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -269,6 +270,58 @@ namespace DecksStorage
             cbSearchFormat.Text = "";
             cbSearchCategory.Text = "";
             txtSearchNote.Text = "";
+        }
+
+        /// <summary>
+        /// 匯入牌組檔
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void importToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog
+            {
+                Filter = "爐石牌組檔(.ds)|*.ds"
+            };
+
+            if (dialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            var decks = File.ReadAllText(dialog.FileName);
+
+            try
+            {
+                DataHelper.Import(decks);
+                MessageBox.Show("匯入完成");
+            }
+            catch
+            {
+                MessageBox.Show("匯入失敗");
+            }
+        }
+
+        /// <summary>
+        /// 匯出牌組檔
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog()
+            {
+                Filter = "爐石牌組檔(.ds)|*.ds"
+            };
+
+            if (dialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            File.WriteAllText(dialog.FileName, Properties.Settings.Default.Decks);
+
+            MessageBox.Show("匯出完成");
         }
 
         private enum DeckTableColumns
