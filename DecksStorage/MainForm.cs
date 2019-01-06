@@ -63,9 +63,12 @@ namespace DecksStorage
         /// <summary>
         /// 更新顯示
         /// </summary>
-        public void UpdateView()
+        /// <param name="clearSort">清除排序</param>
+        public void UpdateView(bool clearSort = false)
         {
             string selected;
+
+            if (clearSort) ClearSort(true);
 
             //更新職業選框
             selected = cbSearchClass.Text;
@@ -171,6 +174,8 @@ namespace DecksStorage
                     return;
             }
 
+            ClearSort();
+
             //處理正反排序
             if (_deckTableSortIndex == e.ColumnIndex)
             {
@@ -183,15 +188,7 @@ namespace DecksStorage
 
             _deckTableSortIndex = e.ColumnIndex;
 
-            for (int i = 0; i < dgvDeck.ColumnCount; i++)
-            {
-                dgvDeck.Columns[i].HeaderText = string.Join("", dgvDeck.Columns[i].HeaderText.Where(x => x != '▼' && x != '▲'));
-
-                if (i == e.ColumnIndex)
-                {
-                    dgvDeck.Columns[i].HeaderText += _deckTableReverse ? "▼" : "▲";
-                }
-            }
+            dgvDeck.Columns[e.ColumnIndex].HeaderText += _deckTableReverse ? "▼" : "▲";
 
             switch ((DeckTableColumns)e.ColumnIndex)
             {
@@ -225,6 +222,24 @@ namespace DecksStorage
             }
 
             DataHelper.UpdateDeck();
+        }
+
+        /// <summary>
+        /// 清除排序
+        /// </summary>
+        /// <param name="reset"></param>
+        private void ClearSort(bool reset = false)
+        {
+            for (int i = 0; i < dgvDeck.ColumnCount; i++)
+            {
+                dgvDeck.Columns[i].HeaderText = string.Join("", dgvDeck.Columns[i].HeaderText.Where(x => x != '▼' && x != '▲'));
+            }
+
+            if (reset)
+            {
+                _deckTableSortIndex = -1;
+                _deckTableReverse = true;
+            }
         }
 
         /// <summary>
@@ -294,7 +309,6 @@ namespace DecksStorage
             try
             {
                 DataHelper.Import(decks);
-                MessageBox.Show("匯入完成");
             }
             catch
             {

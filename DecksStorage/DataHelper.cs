@@ -20,7 +20,7 @@ namespace DecksStorage
         {
             Decks.Add(deck);
 
-            UpdateDeck();
+            UpdateDeck(true);
         }
 
         /// <summary>
@@ -47,12 +47,13 @@ namespace DecksStorage
         /// <summary>
         /// 更新牌組
         /// </summary>
-        internal static void UpdateDeck()
+        /// <param name="clearSort">清除排序</param>
+        internal static void UpdateDeck(bool clearSort = false)
         {
             Properties.Settings.Default.Decks = JsonConvert.SerializeObject(Decks);
             Properties.Settings.Default.Save();
 
-            MainForm.Self.UpdateView();
+            MainForm.Self.UpdateView(clearSort);
         }
 
         /// <summary>
@@ -65,7 +66,7 @@ namespace DecksStorage
             Decks.AddRange(Convert(decks));
 
             //更新
-            UpdateDeck();
+            UpdateDeck(true);
         }
 
         /// <summary>
