@@ -71,7 +71,7 @@ namespace DecksStorage
             cbSearchClass.Items.Clear();
             cbSearchClass.Items.Add("");
             cbSearchClass.Items.AddRange(DataHelper.Decks.Where(x => !string.IsNullOrEmpty(x.Class))
-                .Select(x => x.Class).Distinct().Cast<object>().ToArray());
+                .Select(x => x.Class).Distinct().OrderBy(x => x).Cast<object>().ToArray());
             cbSearchClass.Text = selected;
 
             //更新模式選框
@@ -79,7 +79,7 @@ namespace DecksStorage
             cbSearchFormat.Items.Clear();
             cbSearchFormat.Items.Add("");
             cbSearchFormat.Items.AddRange(DataHelper.Decks.Where(x => !string.IsNullOrEmpty(x.Format))
-                .Select(x => x.Format).Distinct().Cast<object>().ToArray());
+                .Select(x => x.Format).Distinct().OrderBy(x => x).Cast<object>().ToArray());
             cbSearchFormat.Text = selected;
 
             //更新分類選框
@@ -87,7 +87,7 @@ namespace DecksStorage
             cbSearchCategory.Items.Clear();
             cbSearchCategory.Items.Add("");
             cbSearchCategory.Items.AddRange(DataHelper.Decks.Where(x => !string.IsNullOrEmpty(x.Category))
-                .Select(x => x.Category).Distinct().Cast<object>().ToArray());
+                .Select(x => x.Category).Distinct().OrderBy(x => x).Cast<object>().ToArray());
             cbSearchCategory.Text = selected;
 
             //更新牌組表單顯示
@@ -144,6 +144,10 @@ namespace DecksStorage
             {
                 case DeckTableColumns.Copy: //複製
                     Clipboard.SetData(DataFormats.Text, deck.Content);
+                    break;
+                case DeckTableColumns.Edit: //修改
+                    var form = new EditForm(e.RowIndex, deck);
+                    form.ShowDialog(this);
                     break;
                 case DeckTableColumns.Delete: //刪除
                     DeleteDeck(deck);

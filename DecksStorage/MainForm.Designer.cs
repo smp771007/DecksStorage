@@ -93,6 +93,7 @@
             // 
             this.dgvDeck.AllowUserToAddRows = false;
             this.dgvDeck.AllowUserToDeleteRows = false;
+            this.dgvDeck.AllowUserToResizeRows = false;
             resources.ApplyResources(this.dgvDeck, "dgvDeck");
             this.dgvDeck.AutoGenerateColumns = false;
             this.dgvDeck.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -221,6 +222,7 @@
             // 
             // classDataGridViewTextBoxColumn
             // 
+            this.classDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.classDataGridViewTextBoxColumn.DataPropertyName = "Class";
             this.classDataGridViewTextBoxColumn.FillWeight = 20.61856F;
             resources.ApplyResources(this.classDataGridViewTextBoxColumn, "classDataGridViewTextBoxColumn");
@@ -229,6 +231,7 @@
             // 
             // formatDataGridViewTextBoxColumn
             // 
+            this.formatDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.formatDataGridViewTextBoxColumn.DataPropertyName = "Format";
             this.formatDataGridViewTextBoxColumn.FillWeight = 20.61856F;
             resources.ApplyResources(this.formatDataGridViewTextBoxColumn, "formatDataGridViewTextBoxColumn");

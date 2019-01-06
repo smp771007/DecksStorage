@@ -30,19 +30,19 @@ namespace DecksStorage
             cbClass.Items.Clear();
             cbClass.Items.Add("");
             cbClass.Items.AddRange(DataHelper.Decks.Where(x => !string.IsNullOrEmpty(x.Class))
-                .Select(x => x.Class).Distinct().Cast<object>().ToArray());
+                .Select(x => x.Class).Distinct().OrderBy(x => x).Cast<object>().ToArray());
 
             //更新模式選框
             cbFormat.Items.Clear();
             cbFormat.Items.Add("");
             cbFormat.Items.AddRange(DataHelper.Decks.Where(x => !string.IsNullOrEmpty(x.Format))
-                .Select(x => x.Format).Distinct().Cast<object>().ToArray());
+                .Select(x => x.Format).Distinct().OrderBy(x => x).Cast<object>().ToArray());
 
             //更新分類選框
             cbCategory.Items.Clear();
             cbCategory.Items.Add("");
             cbCategory.Items.AddRange(DataHelper.Decks.Where(x => !string.IsNullOrEmpty(x.Category))
-                .Select(x => x.Category).Distinct().Cast<object>().ToArray());
+                .Select(x => x.Category).Distinct().OrderBy(x => x).Cast<object>().ToArray());
 
             //從剪貼簿複製資料
             IDataObject data = Clipboard.GetDataObject();
