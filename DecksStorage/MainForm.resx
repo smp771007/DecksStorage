@@ -121,6 +121,24 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="menuCreate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 20</value>
+  </data>
+  <data name="menuCreate.Text" xml:space="preserve">
+    <value>新增牌組</value>
+  </data>
+  <data name="menuClearDecks.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 22</value>
+  </data>
+  <data name="menuClearDecks.Text" xml:space="preserve">
+    <value>清空牌組</value>
+  </data>
+  <data name="操作ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 20</value>
+  </data>
+  <data name="操作ToolStripMenuItem.Text" xml:space="preserve">
+    <value>操作</value>
+  </data>
   <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -146,40 +164,91 @@
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="menuCreate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 20</value>
-  </data>
-  <data name="menuCreate.Text" xml:space="preserve">
-    <value>新增牌組</value>
-  </data>
-  <data name="操作ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 20</value>
-  </data>
-  <data name="操作ToolStripMenuItem.Text" xml:space="preserve">
-    <value>操作</value>
-  </data>
-  <data name="menuClearDecks.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 22</value>
-  </data>
-  <data name="menuClearDecks.Text" xml:space="preserve">
-    <value>清空牌組</value>
-  </data>
-  <metadata name="categoryDataGridViewTextBoxColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Copy.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Delete.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="deckBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>136, 17</value>
-  </metadata>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="dgvDeck.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
+  <metadata name="Copy.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="Copy.HeaderText" xml:space="preserve">
+    <value>複製</value>
+  </data>
+  <data name="Copy.MinimumWidth" type="System.Int32, mscorlib">
+    <value>60</value>
+  </data>
+  <data name="Copy.Width" type="System.Int32, mscorlib">
+    <value>60</value>
+  </data>
+  <data name="nameDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>名稱</value>
+  </data>
+  <data name="nameDataGridViewTextBoxColumn.MinimumWidth" type="System.Int32, mscorlib">
+    <value>100</value>
+  </data>
+  <data name="classDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>職業</value>
+  </data>
+  <data name="classDataGridViewTextBoxColumn.MinimumWidth" type="System.Int32, mscorlib">
+    <value>60</value>
+  </data>
+  <data name="classDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>70</value>
+  </data>
+  <data name="formatDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>模式</value>
+  </data>
+  <data name="formatDataGridViewTextBoxColumn.MinimumWidth" type="System.Int32, mscorlib">
+    <value>60</value>
+  </data>
+  <data name="formatDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>70</value>
+  </data>
+  <metadata name="categoryDataGridViewTextBoxColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="categoryDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>分類</value>
+  </data>
+  <data name="categoryDataGridViewTextBoxColumn.MinimumWidth" type="System.Int32, mscorlib">
+    <value>60</value>
+  </data>
+  <data name="categoryDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>60</value>
+  </data>
+  <data name="noteDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>備註</value>
+  </data>
+  <data name="noteDataGridViewTextBoxColumn.MinimumWidth" type="System.Int32, mscorlib">
+    <value>100</value>
+  </data>
+  <metadata name="Edit.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="Edit.HeaderText" xml:space="preserve">
+    <value>修改</value>
+  </data>
+  <data name="Edit.MinimumWidth" type="System.Int32, mscorlib">
+    <value>60</value>
+  </data>
+  <data name="Edit.Width" type="System.Int32, mscorlib">
+    <value>60</value>
+  </data>
+  <metadata name="Delete.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="Delete.HeaderText" xml:space="preserve">
+    <value>刪除</value>
+  </data>
+  <data name="Delete.MinimumWidth" type="System.Int32, mscorlib">
+    <value>60</value>
+  </data>
+  <data name="Delete.Width" type="System.Int32, mscorlib">
+    <value>60</value>
+  </data>
+  <metadata name="deckBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>136, 17</value>
+  </metadata>
   <data name="dgvDeck.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 106</value>
   </data>
@@ -201,44 +270,11 @@
   <data name="&gt;&gt;dgvDeck.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <metadata name="categoryDataGridViewTextBoxColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="categoryDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>分類</value>
-  </data>
-  <data name="categoryDataGridViewTextBoxColumn.MinimumWidth" type="System.Int32, mscorlib">
-    <value>60</value>
-  </data>
-  <data name="categoryDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
-    <value>60</value>
-  </data>
-  <metadata name="Copy.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="Copy.HeaderText" xml:space="preserve">
-    <value>複製</value>
-  </data>
-  <data name="Copy.MinimumWidth" type="System.Int32, mscorlib">
-    <value>60</value>
-  </data>
-  <data name="Copy.Width" type="System.Int32, mscorlib">
-    <value>70</value>
-  </data>
-  <metadata name="Delete.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="Delete.HeaderText" xml:space="preserve">
-    <value>刪除</value>
-  </data>
-  <data name="Delete.MinimumWidth" type="System.Int32, mscorlib">
-    <value>60</value>
-  </data>
-  <data name="Delete.Width" type="System.Int32, mscorlib">
-    <value>70</value>
-  </data>
   <data name="groupBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
+  </data>
+  <data name="btnSearchClear.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="btnSearchClear.Location" type="System.Drawing.Point, System.Drawing">
     <value>622, 37</value>
@@ -543,42 +579,6 @@
   <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="nameDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>名稱</value>
-  </data>
-  <data name="nameDataGridViewTextBoxColumn.MinimumWidth" type="System.Int32, mscorlib">
-    <value>100</value>
-  </data>
-  <data name="nameDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
-    <value>54</value>
-  </data>
-  <data name="classDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>職業</value>
-  </data>
-  <data name="classDataGridViewTextBoxColumn.MinimumWidth" type="System.Int32, mscorlib">
-    <value>60</value>
-  </data>
-  <data name="classDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
-    <value>70</value>
-  </data>
-  <data name="formatDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>模式</value>
-  </data>
-  <data name="formatDataGridViewTextBoxColumn.MinimumWidth" type="System.Int32, mscorlib">
-    <value>60</value>
-  </data>
-  <data name="formatDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
-    <value>70</value>
-  </data>
-  <data name="noteDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>備註</value>
-  </data>
-  <data name="noteDataGridViewTextBoxColumn.MinimumWidth" type="System.Int32, mscorlib">
-    <value>100</value>
-  </data>
-  <metadata name="deckBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>136, 17</value>
-  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -1747,22 +1747,16 @@
   <data name="&gt;&gt;menuClearDecks.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;categoryDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>categoryDataGridViewTextBoxColumn</value>
+  <data name="&gt;&gt;deckBindingSource.Name" xml:space="preserve">
+    <value>deckBindingSource</value>
   </data>
-  <data name="&gt;&gt;categoryDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;deckBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Copy.Name" xml:space="preserve">
     <value>Copy</value>
   </data>
   <data name="&gt;&gt;Copy.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Delete.Name" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-  <data name="&gt;&gt;Delete.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;nameDataGridViewTextBoxColumn.Name" xml:space="preserve">
@@ -1783,17 +1777,29 @@
   <data name="&gt;&gt;formatDataGridViewTextBoxColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;categoryDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>categoryDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;categoryDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;noteDataGridViewTextBoxColumn.Name" xml:space="preserve">
     <value>noteDataGridViewTextBoxColumn</value>
   </data>
   <data name="&gt;&gt;noteDataGridViewTextBoxColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;deckBindingSource.Name" xml:space="preserve">
-    <value>deckBindingSource</value>
+  <data name="&gt;&gt;Edit.Name" xml:space="preserve">
+    <value>Edit</value>
   </data>
-  <data name="&gt;&gt;deckBindingSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;Edit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Delete.Name" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="&gt;&gt;Delete.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

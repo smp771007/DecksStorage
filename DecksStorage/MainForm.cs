@@ -157,6 +157,16 @@ namespace DecksStorage
         /// <param name="e"></param>
         private void DecksSort(DataGridViewCellEventArgs e)
         {
+            //按鈕不排序
+            switch ((DeckTableColumns)e.ColumnIndex)
+            {
+                case DeckTableColumns.Copy:
+                case DeckTableColumns.Edit:
+                case DeckTableColumns.Delete:
+                    return;
+            }
+
+            //處理正反排序
             if (_deckTableSortIndex == e.ColumnIndex)
             {
                 _deckTableReverse = !_deckTableReverse;
@@ -260,6 +270,10 @@ namespace DecksStorage
         private enum DeckTableColumns
         {
             /// <summary>
+            /// 複製
+            /// </summary>
+            Copy,
+            /// <summary>
             /// 名稱
             /// </summary>
             Name,
@@ -280,9 +294,9 @@ namespace DecksStorage
             /// </summary>
             Note,
             /// <summary>
-            /// 複製
+            /// 修改
             /// </summary>
-            Copy,
+            Edit,
             /// <summary>
             /// 刪除
             /// </summary>

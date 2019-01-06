@@ -35,10 +35,8 @@
             this.操作ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuClearDecks = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvDeck = new System.Windows.Forms.DataGridView();
-            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Copy = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSearchClear = new System.Windows.Forms.Button();
             this.cbSearchCategory = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cbSearchClass = new System.Windows.Forms.ComboBox();
@@ -49,12 +47,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtSearchName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.deckBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Copy = new System.Windows.Forms.DataGridViewButtonColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.formatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deckBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnSearchClear = new System.Windows.Forms.Button();
+            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeck)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -96,12 +97,13 @@
             this.dgvDeck.AutoGenerateColumns = false;
             this.dgvDeck.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDeck.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Copy,
             this.nameDataGridViewTextBoxColumn,
             this.classDataGridViewTextBoxColumn,
             this.formatDataGridViewTextBoxColumn,
             this.categoryDataGridViewTextBoxColumn,
             this.noteDataGridViewTextBoxColumn,
-            this.Copy,
+            this.Edit,
             this.Delete});
             this.dgvDeck.DataSource = this.deckBindingSource;
             this.dgvDeck.Name = "dgvDeck";
@@ -109,33 +111,6 @@
             this.dgvDeck.RowHeadersVisible = false;
             this.dgvDeck.RowTemplate.Height = 24;
             this.dgvDeck.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDeck_CellClick);
-            // 
-            // categoryDataGridViewTextBoxColumn
-            // 
-            this.categoryDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
-            resources.ApplyResources(this.categoryDataGridViewTextBoxColumn, "categoryDataGridViewTextBoxColumn");
-            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
-            this.categoryDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Copy
-            // 
-            resources.ApplyResources(this.Copy, "Copy");
-            this.Copy.Name = "Copy";
-            this.Copy.ReadOnly = true;
-            this.Copy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Copy.Text = "複製";
-            this.Copy.UseColumnTextForButtonValue = true;
-            // 
-            // Delete
-            // 
-            this.Delete.FillWeight = 20.61856F;
-            resources.ApplyResources(this.Delete, "Delete");
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Delete.Text = "刪除";
-            this.Delete.UseColumnTextForButtonValue = true;
             // 
             // groupBox1
             // 
@@ -153,6 +128,13 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            // 
+            // btnSearchClear
+            // 
+            resources.ApplyResources(this.btnSearchClear, "btnSearchClear");
+            this.btnSearchClear.Name = "btnSearchClear";
+            this.btnSearchClear.UseVisualStyleBackColor = true;
+            this.btnSearchClear.Click += new System.EventHandler(this.btnSearchClear_Click);
             // 
             // cbSearchCategory
             // 
@@ -215,6 +197,20 @@
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
             // 
+            // deckBindingSource
+            // 
+            this.deckBindingSource.DataSource = typeof(DecksStorage.Models.Deck);
+            // 
+            // Copy
+            // 
+            this.Copy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            resources.ApplyResources(this.Copy, "Copy");
+            this.Copy.Name = "Copy";
+            this.Copy.ReadOnly = true;
+            this.Copy.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Copy.Text = "複製";
+            this.Copy.UseColumnTextForButtonValue = true;
+            // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -239,6 +235,14 @@
             this.formatDataGridViewTextBoxColumn.Name = "formatDataGridViewTextBoxColumn";
             this.formatDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // categoryDataGridViewTextBoxColumn
+            // 
+            this.categoryDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
+            resources.ApplyResources(this.categoryDataGridViewTextBoxColumn, "categoryDataGridViewTextBoxColumn");
+            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
+            this.categoryDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // noteDataGridViewTextBoxColumn
             // 
             this.noteDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -248,16 +252,26 @@
             this.noteDataGridViewTextBoxColumn.Name = "noteDataGridViewTextBoxColumn";
             this.noteDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // deckBindingSource
+            // Edit
             // 
-            this.deckBindingSource.DataSource = typeof(DecksStorage.Models.Deck);
+            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            resources.ApplyResources(this.Edit, "Edit");
+            this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
+            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Edit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Edit.Text = "修改";
+            this.Edit.UseColumnTextForButtonValue = true;
             // 
-            // btnSearchClear
+            // Delete
             // 
-            resources.ApplyResources(this.btnSearchClear, "btnSearchClear");
-            this.btnSearchClear.Name = "btnSearchClear";
-            this.btnSearchClear.UseVisualStyleBackColor = true;
-            this.btnSearchClear.Click += new System.EventHandler(this.btnSearchClear_Click);
+            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            resources.ApplyResources(this.Delete, "Delete");
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Delete.Text = "刪除";
+            this.Delete.UseColumnTextForButtonValue = true;
             // 
             // MainForm
             // 
@@ -297,16 +311,17 @@
         private System.Windows.Forms.TextBox txtSearchNote;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cbSearchCategory;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnSearchClear;
+        private System.Windows.Forms.DataGridViewButtonColumn Copy;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn classDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn formatDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn noteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn Copy;
+        private System.Windows.Forms.DataGridViewButtonColumn Edit;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
-        private System.Windows.Forms.ComboBox cbSearchCategory;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnSearchClear;
     }
 }
 
