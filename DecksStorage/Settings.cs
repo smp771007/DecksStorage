@@ -8,6 +8,6 @@ namespace DecksStorage
 {
     public class Settings
     {
-        public static string Version { get; } = "v1.0.1";
+        public static string Version { get; } = "v1.0.2";
     }
 }

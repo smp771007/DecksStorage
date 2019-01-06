@@ -248,7 +248,6 @@ namespace DecksStorage
         /// <param name="deck"></param>
         private void DeleteDeck(Deck deck)
         {
-
             var confirmResult = MessageBox.Show($"確定要刪除此牌組({deck.Name})?", "刪除", MessageBoxButtons.YesNo);
 
             if (confirmResult != DialogResult.Yes) return;
@@ -264,6 +263,8 @@ namespace DecksStorage
         private void menuClearDecks_Click(object sender, EventArgs e)
         {
             var confirmResult = MessageBox.Show($"確定要清空所有牌組資訊嗎?", "刪除", MessageBoxButtons.YesNo);
+
+            if (confirmResult != DialogResult.Yes) return;
 
             DataHelper.DeleteAllDeck();
         }
