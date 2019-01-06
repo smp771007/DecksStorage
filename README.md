@@ -2,8 +2,6 @@
 
 輕鬆存取牌組，幫忙儲存管理遊戲內放不下的牌組。
 
-![image](https://drive.google.com/uc?export=view&id=1vAEfsZAGgC3CTjG5MisUvzKnpB5qmUq8)
-
 # 下載點
 
 * [v1.0.2 下載點](https://drive.google.com/open?id=19R-Kl7mFYE91b3pD93ffm9DPrPectRqo)
