@@ -11,6 +11,7 @@ namespace DecksStorage.Models
         public string Name { get; set; }
         public string Format { get; set; }
         public string Class { get; set; }
+        public string Category { get; set; }
         public string Content { get; set; }
         public string Note { get; set; }
     }

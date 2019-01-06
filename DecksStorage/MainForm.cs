@@ -64,19 +64,31 @@ namespace DecksStorage
         /// </summary>
         public void UpdateView()
         {
-            //更新模式選框
-            var selected = cbSearchFormat.Text;
-            cbSearchFormat.Items.Clear();
-            cbSearchFormat.Items.Add("");
-            cbSearchFormat.Items.AddRange(DataHelper.Decks.Select(x => x.Format).Distinct().Cast<object>().ToArray());
-            cbSearchFormat.Text = selected;
+            string selected;
 
             //更新職業選框
             selected = cbSearchClass.Text;
             cbSearchClass.Items.Clear();
             cbSearchClass.Items.Add("");
-            cbSearchClass.Items.AddRange(DataHelper.Decks.Select(x => x.Class).Distinct().Cast<object>().ToArray());
+            cbSearchClass.Items.AddRange(DataHelper.Decks.Where(x => !string.IsNullOrEmpty(x.Class))
+                .Select(x => x.Class).Distinct().Cast<object>().ToArray());
             cbSearchClass.Text = selected;
+
+            //更新模式選框
+            selected = cbSearchFormat.Text;
+            cbSearchFormat.Items.Clear();
+            cbSearchFormat.Items.Add("");
+            cbSearchFormat.Items.AddRange(DataHelper.Decks.Where(x => !string.IsNullOrEmpty(x.Format))
+                .Select(x => x.Format).Distinct().Cast<object>().ToArray());
+            cbSearchFormat.Text = selected;
+
+            //更新分類選框
+            selected = cbSearchCategory.Text;
+            cbSearchCategory.Items.Clear();
+            cbSearchCategory.Items.Add("");
+            cbSearchCategory.Items.AddRange(DataHelper.Decks.Where(x => !string.IsNullOrEmpty(x.Category))
+                .Select(x => x.Category).Distinct().Cast<object>().ToArray());
+            cbSearchCategory.Text = selected;
 
             //更新牌組表單顯示
             UpdateDeckView();
@@ -91,8 +103,9 @@ namespace DecksStorage
             {
                 DataSource = DataHelper.Decks
                 .Where(x => x.Name.IndexOf(txtSearchName.Text, StringComparison.OrdinalIgnoreCase) >= 0) //名稱
-                .Where(x => string.IsNullOrEmpty(cbSearchFormat.Text) ? true : x.Format == cbSearchFormat.Text) //模式
                 .Where(x => string.IsNullOrEmpty(cbSearchClass.Text) ? true : x.Class == cbSearchClass.Text) //職業
+                .Where(x => string.IsNullOrEmpty(cbSearchFormat.Text) ? true : x.Format == cbSearchFormat.Text) //模式
+                .Where(x => string.IsNullOrEmpty(cbSearchCategory.Text) ? true : x.Category == cbSearchCategory.Text) //分類
                 .Where(x => x.Note.IndexOf(txtSearchNote.Text, StringComparison.OrdinalIgnoreCase) >= 0) //備註
                 .ToList()
             };
@@ -172,15 +185,20 @@ namespace DecksStorage
                         DataHelper.Decks.OrderByDescending(x => x.Name).ToList() :
                         DataHelper.Decks.OrderBy(x => x.Name).ToList();
                     break;
+                case DeckTableColumns.Class: //職業
+                    DataHelper.Decks = _deckTableReverse ?
+                        DataHelper.Decks.OrderByDescending(x => x.Class).ToList() :
+                        DataHelper.Decks.OrderBy(x => x.Class).ToList();
+                    break;
                 case DeckTableColumns.Format: //模式
                     DataHelper.Decks = _deckTableReverse ?
                         DataHelper.Decks.OrderByDescending(x => x.Format).ToList() :
                         DataHelper.Decks.OrderBy(x => x.Format).ToList();
                     break;
-                case DeckTableColumns.Class: //職業
+                case DeckTableColumns.Category: //模式
                     DataHelper.Decks = _deckTableReverse ?
-                        DataHelper.Decks.OrderByDescending(x => x.Class).ToList() :
-                        DataHelper.Decks.OrderBy(x => x.Class).ToList();
+                        DataHelper.Decks.OrderByDescending(x => x.Category).ToList() :
+                        DataHelper.Decks.OrderBy(x => x.Category).ToList();
                     break;
                 case DeckTableColumns.Note: //備註
                     DataHelper.Decks = _deckTableReverse ?
@@ -220,24 +238,23 @@ namespace DecksStorage
             DataHelper.DeleteAllDeck();
         }
 
-        private void txtSearchName_TextChanged(object sender, EventArgs e)
+        private void SearchChanged(object sender, EventArgs e)
         {
             UpdateDeckView();
         }
 
-        private void cbSearchClass_SelectedIndexChanged(object sender, EventArgs e)
+        /// <summary>
+        /// 清空查詢
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSearchClear_Click(object sender, EventArgs e)
         {
-            UpdateDeckView();
-        }
-
-        private void cbSearchFormat_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            UpdateDeckView();
-        }
-
-        private void txtSearchNote_TextChanged(object sender, EventArgs e)
-        {
-            UpdateDeckView();
+            txtSearchName.Text = "";
+            cbSearchClass.Text = "";
+            cbSearchFormat.Text = "";
+            cbSearchCategory.Text = "";
+            txtSearchNote.Text = "";
         }
 
         private enum DeckTableColumns
@@ -247,13 +264,17 @@ namespace DecksStorage
             /// </summary>
             Name,
             /// <summary>
+            /// 職業
+            /// </summary>
+            Class,
+            /// <summary>
             /// 模式
             /// </summary>
             Format,
             /// <summary>
-            /// 職業
+            /// 分類
             /// </summary>
-            Class,
+            Category,
             /// <summary>
             /// 備註
             /// </summary>

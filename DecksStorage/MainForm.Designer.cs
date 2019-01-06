@@ -35,7 +35,12 @@
             this.操作ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuClearDecks = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvDeck = new System.Windows.Forms.DataGridView();
+            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Copy = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbSearchCategory = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.cbSearchClass = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cbSearchFormat = new System.Windows.Forms.ComboBox();
@@ -44,13 +49,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtSearchName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.deckBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.formatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.formatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Copy = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.deckBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnSearchClear = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeck)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -93,8 +97,9 @@
             this.dgvDeck.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDeck.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
-            this.formatDataGridViewTextBoxColumn,
             this.classDataGridViewTextBoxColumn,
+            this.formatDataGridViewTextBoxColumn,
+            this.categoryDataGridViewTextBoxColumn,
             this.noteDataGridViewTextBoxColumn,
             this.Copy,
             this.Delete});
@@ -105,104 +110,13 @@
             this.dgvDeck.RowTemplate.Height = 24;
             this.dgvDeck.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDeck_CellClick);
             // 
-            // groupBox1
+            // categoryDataGridViewTextBoxColumn
             // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
-            this.groupBox1.Controls.Add(this.cbSearchClass);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.cbSearchFormat);
-            this.groupBox1.Controls.Add(this.txtSearchNote);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtSearchName);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.TabStop = false;
-            // 
-            // cbSearchClass
-            // 
-            this.cbSearchClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSearchClass.FormattingEnabled = true;
-            resources.ApplyResources(this.cbSearchClass, "cbSearchClass");
-            this.cbSearchClass.Name = "cbSearchClass";
-            this.cbSearchClass.SelectedIndexChanged += new System.EventHandler(this.cbSearchClass_SelectedIndexChanged);
-            // 
-            // label4
-            // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
-            // 
-            // cbSearchFormat
-            // 
-            this.cbSearchFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSearchFormat.FormattingEnabled = true;
-            resources.ApplyResources(this.cbSearchFormat, "cbSearchFormat");
-            this.cbSearchFormat.Name = "cbSearchFormat";
-            this.cbSearchFormat.SelectedIndexChanged += new System.EventHandler(this.cbSearchFormat_SelectedIndexChanged);
-            // 
-            // txtSearchNote
-            // 
-            resources.ApplyResources(this.txtSearchNote, "txtSearchNote");
-            this.txtSearchNote.Name = "txtSearchNote";
-            this.txtSearchNote.TextChanged += new System.EventHandler(this.txtSearchNote_TextChanged);
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
-            // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
-            // 
-            // txtSearchName
-            // 
-            resources.ApplyResources(this.txtSearchName, "txtSearchName");
-            this.txtSearchName.Name = "txtSearchName";
-            this.txtSearchName.TextChanged += new System.EventHandler(this.txtSearchName_TextChanged);
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
-            // 
-            // deckBindingSource
-            // 
-            this.deckBindingSource.DataSource = typeof(DecksStorage.Models.Deck);
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            resources.ApplyResources(this.nameDataGridViewTextBoxColumn, "nameDataGridViewTextBoxColumn");
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // formatDataGridViewTextBoxColumn
-            // 
-            this.formatDataGridViewTextBoxColumn.DataPropertyName = "Format";
-            this.formatDataGridViewTextBoxColumn.FillWeight = 20.61856F;
-            resources.ApplyResources(this.formatDataGridViewTextBoxColumn, "formatDataGridViewTextBoxColumn");
-            this.formatDataGridViewTextBoxColumn.Name = "formatDataGridViewTextBoxColumn";
-            this.formatDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // classDataGridViewTextBoxColumn
-            // 
-            this.classDataGridViewTextBoxColumn.DataPropertyName = "Class";
-            this.classDataGridViewTextBoxColumn.FillWeight = 20.61856F;
-            resources.ApplyResources(this.classDataGridViewTextBoxColumn, "classDataGridViewTextBoxColumn");
-            this.classDataGridViewTextBoxColumn.Name = "classDataGridViewTextBoxColumn";
-            this.classDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // noteDataGridViewTextBoxColumn
-            // 
-            this.noteDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.noteDataGridViewTextBoxColumn.DataPropertyName = "Note";
-            this.noteDataGridViewTextBoxColumn.FillWeight = 338.1443F;
-            resources.ApplyResources(this.noteDataGridViewTextBoxColumn, "noteDataGridViewTextBoxColumn");
-            this.noteDataGridViewTextBoxColumn.Name = "noteDataGridViewTextBoxColumn";
-            this.noteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.categoryDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
+            resources.ApplyResources(this.categoryDataGridViewTextBoxColumn, "categoryDataGridViewTextBoxColumn");
+            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
+            this.categoryDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Copy
             // 
@@ -222,6 +136,128 @@
             this.Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Delete.Text = "刪除";
             this.Delete.UseColumnTextForButtonValue = true;
+            // 
+            // groupBox1
+            // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Controls.Add(this.btnSearchClear);
+            this.groupBox1.Controls.Add(this.cbSearchCategory);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.cbSearchClass);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.cbSearchFormat);
+            this.groupBox1.Controls.Add(this.txtSearchNote);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtSearchName);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.TabStop = false;
+            // 
+            // cbSearchCategory
+            // 
+            this.cbSearchCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSearchCategory.FormattingEnabled = true;
+            resources.ApplyResources(this.cbSearchCategory, "cbSearchCategory");
+            this.cbSearchCategory.Name = "cbSearchCategory";
+            this.cbSearchCategory.SelectedIndexChanged += new System.EventHandler(this.SearchChanged);
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
+            // 
+            // cbSearchClass
+            // 
+            this.cbSearchClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSearchClass.FormattingEnabled = true;
+            resources.ApplyResources(this.cbSearchClass, "cbSearchClass");
+            this.cbSearchClass.Name = "cbSearchClass";
+            this.cbSearchClass.SelectedIndexChanged += new System.EventHandler(this.SearchChanged);
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
+            // 
+            // cbSearchFormat
+            // 
+            this.cbSearchFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSearchFormat.FormattingEnabled = true;
+            resources.ApplyResources(this.cbSearchFormat, "cbSearchFormat");
+            this.cbSearchFormat.Name = "cbSearchFormat";
+            this.cbSearchFormat.SelectedIndexChanged += new System.EventHandler(this.SearchChanged);
+            // 
+            // txtSearchNote
+            // 
+            resources.ApplyResources(this.txtSearchNote, "txtSearchNote");
+            this.txtSearchNote.Name = "txtSearchNote";
+            this.txtSearchNote.TextChanged += new System.EventHandler(this.SearchChanged);
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // txtSearchName
+            // 
+            resources.ApplyResources(this.txtSearchName, "txtSearchName");
+            this.txtSearchName.Name = "txtSearchName";
+            this.txtSearchName.TextChanged += new System.EventHandler(this.SearchChanged);
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            resources.ApplyResources(this.nameDataGridViewTextBoxColumn, "nameDataGridViewTextBoxColumn");
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // classDataGridViewTextBoxColumn
+            // 
+            this.classDataGridViewTextBoxColumn.DataPropertyName = "Class";
+            this.classDataGridViewTextBoxColumn.FillWeight = 20.61856F;
+            resources.ApplyResources(this.classDataGridViewTextBoxColumn, "classDataGridViewTextBoxColumn");
+            this.classDataGridViewTextBoxColumn.Name = "classDataGridViewTextBoxColumn";
+            this.classDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // formatDataGridViewTextBoxColumn
+            // 
+            this.formatDataGridViewTextBoxColumn.DataPropertyName = "Format";
+            this.formatDataGridViewTextBoxColumn.FillWeight = 20.61856F;
+            resources.ApplyResources(this.formatDataGridViewTextBoxColumn, "formatDataGridViewTextBoxColumn");
+            this.formatDataGridViewTextBoxColumn.Name = "formatDataGridViewTextBoxColumn";
+            this.formatDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // noteDataGridViewTextBoxColumn
+            // 
+            this.noteDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.noteDataGridViewTextBoxColumn.DataPropertyName = "Note";
+            this.noteDataGridViewTextBoxColumn.FillWeight = 338.1443F;
+            resources.ApplyResources(this.noteDataGridViewTextBoxColumn, "noteDataGridViewTextBoxColumn");
+            this.noteDataGridViewTextBoxColumn.Name = "noteDataGridViewTextBoxColumn";
+            this.noteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // deckBindingSource
+            // 
+            this.deckBindingSource.DataSource = typeof(DecksStorage.Models.Deck);
+            // 
+            // btnSearchClear
+            // 
+            resources.ApplyResources(this.btnSearchClear, "btnSearchClear");
+            this.btnSearchClear.Name = "btnSearchClear";
+            this.btnSearchClear.UseVisualStyleBackColor = true;
+            this.btnSearchClear.Click += new System.EventHandler(this.btnSearchClear_Click);
             // 
             // MainForm
             // 
@@ -262,11 +298,15 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn formatDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn classDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn formatDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn noteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Copy;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.ComboBox cbSearchCategory;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnSearchClear;
     }
 }
 

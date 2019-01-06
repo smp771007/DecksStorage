@@ -26,15 +26,23 @@ namespace DecksStorage
         /// <param name="e"></param>
         private void CreateForm_Load(object sender, EventArgs e)
         {
-            //更新模式選框
-            cbFormat.Items.Clear();
-            cbFormat.Items.Add("");
-            cbFormat.Items.AddRange(DataHelper.Decks.Select(x => x.Format).Distinct().Cast<object>().ToArray());
-
             //更新職業選框
             cbClass.Items.Clear();
             cbClass.Items.Add("");
-            cbClass.Items.AddRange(DataHelper.Decks.Select(x => x.Class).Distinct().Cast<object>().ToArray());
+            cbClass.Items.AddRange(DataHelper.Decks.Where(x => !string.IsNullOrEmpty(x.Class))
+                .Select(x => x.Class).Distinct().Cast<object>().ToArray());
+
+            //更新模式選框
+            cbFormat.Items.Clear();
+            cbFormat.Items.Add("");
+            cbFormat.Items.AddRange(DataHelper.Decks.Where(x => !string.IsNullOrEmpty(x.Format))
+                .Select(x => x.Format).Distinct().Cast<object>().ToArray());
+
+            //更新分類選框
+            cbCategory.Items.Clear();
+            cbCategory.Items.Add("");
+            cbCategory.Items.AddRange(DataHelper.Decks.Where(x => !string.IsNullOrEmpty(x.Category))
+                .Select(x => x.Category).Distinct().Cast<object>().ToArray());
 
             //從剪貼簿複製資料
             IDataObject data = Clipboard.GetDataObject();
@@ -53,7 +61,6 @@ namespace DecksStorage
         {
             //1:Name(名稱), 2:Class(職業), 3:Format(模式)
             var match = Regex.Match(content, "### (.*)\n# (?:.*(?:: |：))(.*)\n# (?:.*(?:: |：))(.*)\n");
-
 
             if (!match.Success) return;
 
@@ -74,6 +81,7 @@ namespace DecksStorage
                 Name = txtName.Text,
                 Class = cbClass.Text,
                 Format = cbFormat.Text,
+                Category = cbCategory.Text,
                 Content = rtbContent.Text,
                 Note = txtNote.Text
             });
