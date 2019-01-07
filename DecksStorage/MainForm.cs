@@ -103,18 +103,21 @@ namespace DecksStorage
         /// </summary>
         private void UpdateDeckView()
         {
-            var binding = new BindingSource
-            {
-                DataSource = DataHelper.Decks
+            var source = DataHelper.Decks
                 .Where(x => x.Name.IndexOf(txtSearchName.Text, StringComparison.OrdinalIgnoreCase) >= 0) //名稱
                 .Where(x => string.IsNullOrEmpty(cbSearchClass.Text) ? true : x.Class == cbSearchClass.Text) //職業
                 .Where(x => string.IsNullOrEmpty(cbSearchFormat.Text) ? true : x.Format == cbSearchFormat.Text) //模式
                 .Where(x => string.IsNullOrEmpty(cbSearchCategory.Text) ? true : x.Category == cbSearchCategory.Text) //分類
                 .Where(x => x.Note.IndexOf(txtSearchNote.Text, StringComparison.OrdinalIgnoreCase) >= 0) //備註
-                .ToList()
-            };
+                .ToList();
 
-            dgvDeck.DataSource = binding;
+
+            lbDeckCount.Text = $"牌組數量: {source.Count}";
+
+            dgvDeck.DataSource = new BindingSource
+            {
+                DataSource = source
+            }; ;
         }
 
         /// <summary>
