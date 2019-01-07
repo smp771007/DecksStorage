@@ -342,7 +342,13 @@ namespace DecksStorage
             MessageBox.Show("匯出完成");
         }
 
-        private enum DeckTableColumns
+        private void ReplaceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new ReplaceForm();
+            form.ShowDialog(this);
+        }
+
+        public enum DeckTableColumns
         {
             /// <summary>
             /// 複製
