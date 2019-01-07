@@ -2,7 +2,7 @@
 
 輕鬆存取牌組，幫忙儲存管理遊戲內放不下的牌組。
 
-![image](https://github.com/smp771007/DecksStorage/blob/master/DecksStorage/readme/Main.png)
+![image](https://github.com/smp771007/DecksStorage/blob/master/DecksStorage/readme/Main2.png)
 ![image](https://github.com/smp771007/DecksStorage/blob/master/DecksStorage/readme/New.png)
 
 # 下載點
