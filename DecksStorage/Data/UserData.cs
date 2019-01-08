@@ -21,14 +21,19 @@ namespace DecksStorage
         {
             try
             {
-                var file = File.ReadAllText(FILE_PATH, Encoding.UTF8);
-                Data = JsonConvert.DeserializeObject<Data>(file);
+                if (File.Exists(FILE_PATH))
+                {
+                    var file = File.ReadAllText(FILE_PATH, Encoding.UTF8);
+
+                    Data = JsonConvert.DeserializeObject<Data>(file);
+                }
             }
             catch (Exception e)
             {
                 File.WriteAllText(ERR_LOG, $@"[{DateTime.Now:yyyyMMdd:HH:mm:ss}]{e.Message}\r\n{e}\r\n");
-                Data = new Data();
             }
+
+            Data = new Data();
         }
 
         internal static void Save()
