@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,11 +21,12 @@ namespace DecksStorage
             {
                 Application.Run(new MainForm());
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                var msg = $"{ex.Message} {ex}";
-                Clipboard.SetData(DataFormats.Text, $"{ex.Message} {ex}");
-                MessageBox.Show($"{ex.Message} {ex}");
+                var msg = $"{e.Message} {e}";
+
+                File.WriteAllText(UserData.ERR_LOG, $@"[{DateTime.Now:yyyyMMdd:HH:mm:ss}]{e.Message}\r\n{e}");
+                MessageBox.Show($"{e.Message} {e}");
             }
         }
     }

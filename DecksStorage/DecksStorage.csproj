@@ -74,7 +74,8 @@
     <Compile Include="CreateForm.Designer.cs">
       <DependentUpon>CreateForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataHelper.cs" />
+    <Compile Include="Data\DataHelper.cs" />
+    <Compile Include="Data\UserData.cs" />
     <Compile Include="EditForm.cs">
       <SubType>Form</SubType>
     </Compile>

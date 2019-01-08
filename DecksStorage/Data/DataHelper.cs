@@ -10,7 +10,7 @@ namespace DecksStorage
 {
     public static class DataHelper
     {
-        internal static List<Deck> Decks { get; set; } = Convert(Properties.Settings.Default.Decks);
+        internal static List<Deck> Decks { get; set; } = UserData.Data.Decks;
 
         /// <summary>
         /// 加入牌組
@@ -50,8 +50,8 @@ namespace DecksStorage
         /// <param name="clearSort">清除排序</param>
         internal static void UpdateDeck(bool clearSort = false)
         {
-            Properties.Settings.Default.Decks = JsonConvert.SerializeObject(Decks);
-            Properties.Settings.Default.Save();
+            UserData.Data.Decks = Decks;
+            UserData.Save();
 
             MainForm.Self.UpdateView(clearSort);
         }

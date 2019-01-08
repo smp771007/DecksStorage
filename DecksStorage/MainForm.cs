@@ -1,4 +1,5 @@
 ﻿using DecksStorage.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,9 +37,9 @@ namespace DecksStorage
             //設定視窗位置
             AuthResizeFormTool.Set(
                 this,
-                Properties.Settings.Default.MFSize,
-                Properties.Settings.Default.MFState,
-                Properties.Settings.Default.MFLocation);
+                UserData.Data.MFSize,
+                UserData.Data.MFState,
+                UserData.Data.MFLocation);
 
             Self = this;
 
@@ -53,11 +54,11 @@ namespace DecksStorage
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             var output = AuthResizeFormTool.Get(this);
-            Properties.Settings.Default.MFState = output.State;
-            Properties.Settings.Default.MFLocation = output.Location;
-            Properties.Settings.Default.MFSize = output.Size;
+            UserData.Data.MFState = output.State;
+            UserData.Data.MFLocation = output.Location;
+            UserData.Data.MFSize = output.Size;
 
-            Properties.Settings.Default.Save();
+            UserData.Save();
         }
 
         /// <summary>
@@ -337,7 +338,7 @@ namespace DecksStorage
                 return;
             }
 
-            File.WriteAllText(dialog.FileName, Properties.Settings.Default.Decks);
+            File.WriteAllText(dialog.FileName, JsonConvert.SerializeObject(UserData.Data.Decks));
 
             MessageBox.Show("匯出完成");
         }
