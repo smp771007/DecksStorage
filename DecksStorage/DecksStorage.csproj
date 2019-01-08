@@ -119,7 +119,9 @@
     <EmbeddedResource Include="ReplaceForm.resx">
       <DependentUpon>ReplaceForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="default_decks\雙開解任務%28190108%29 by 偶然經過的旅人.ds" />
+    <None Include="default_decks\雙開解任務%28190108%29 by 偶然經過的旅人.ds">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DecksStorage.Models.Deck.datasource" />
     <None Include="Properties\Settings.settings">
