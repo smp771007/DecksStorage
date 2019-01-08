@@ -26,6 +26,8 @@ namespace DecksStorage
                     var file = File.ReadAllText(FILE_PATH, Encoding.UTF8);
 
                     Data = JsonConvert.DeserializeObject<Data>(file);
+
+                    return;
                 }
             }
             catch (Exception e)
