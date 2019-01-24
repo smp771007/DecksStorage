@@ -23,10 +23,8 @@ namespace DecksStorage
             }
             catch (Exception e)
             {
-                var msg = $"{e.Message} {e}";
-
-                File.WriteAllText(UserData.ERR_LOG, $@"[{DateTime.Now:yyyyMMdd:HH:mm:ss}]{e.Message}\r\n{e}");
-                MessageBox.Show($"{e.Message} {e}");
+                File.WriteAllText(UserData.ERR_LOG, $"{Settings.Version}\r\n[{DateTime.Now:yyyyMMdd:HH:mm:ss}]\r\n{e}");
+                MessageBox.Show($"程式錯誤，請提供{UserData.ERR_LOG}給作者除錯。");
             }
         }
     }

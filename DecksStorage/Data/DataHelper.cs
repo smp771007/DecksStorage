@@ -20,7 +20,7 @@ namespace DecksStorage
         {
             Decks.Add(deck);
 
-            UpdateDeck(true);
+            UpdateDeck(MainForm.ReflashType.Bottom, true);
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace DecksStorage
         {
             Decks.Remove(deck);
 
-            UpdateDeck();
+            UpdateDeck(MainForm.ReflashType.Keep);
         }
 
         /// <summary>
@@ -41,19 +41,20 @@ namespace DecksStorage
         {
             Decks.Clear();
 
-            UpdateDeck();
+            UpdateDeck(MainForm.ReflashType.Top);
         }
 
         /// <summary>
         /// 更新牌組
         /// </summary>
+        /// <param name="reflashType">刷新類型</param>
         /// <param name="clearSort">清除排序</param>
-        internal static void UpdateDeck(bool clearSort = false)
+        internal static void UpdateDeck(MainForm.ReflashType reflashType, bool clearSort = false)
         {
             UserData.Data.Decks = Decks;
             UserData.Save();
 
-            MainForm.Self.UpdateView(clearSort);
+            MainForm.Self.UpdateView(reflashType, clearSort);
         }
 
         /// <summary>
@@ -66,7 +67,7 @@ namespace DecksStorage
             Decks.AddRange(Convert(decks));
 
             //更新
-            UpdateDeck(true);
+            UpdateDeck(MainForm.ReflashType.Bottom, true);
         }
 
         /// <summary>

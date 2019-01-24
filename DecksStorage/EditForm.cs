@@ -40,7 +40,7 @@ namespace DecksStorage
             _deck.Note = txtNote.Text;
             _deck.Content = rtbContent.Text;
 
-            DataHelper.UpdateDeck();
+            DataHelper.UpdateDeck(MainForm.ReflashType.Keep);
 
             Close();
         }

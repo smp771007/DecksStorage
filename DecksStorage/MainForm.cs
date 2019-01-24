@@ -43,7 +43,7 @@ namespace DecksStorage
 
             Self = this;
 
-            UpdateView();
+            UpdateView(ReflashType.Top);
         }
 
         /// <summary>
@@ -64,45 +64,53 @@ namespace DecksStorage
         /// <summary>
         /// 更新顯示
         /// </summary>
+        /// <param name="reflashType">刷新類型</param>
         /// <param name="clearSort">清除排序</param>
-        public void UpdateView(bool clearSort = false)
+        public void UpdateView(ReflashType reflashType, bool clearSort = false)
         {
             string selected;
 
             if (clearSort) ClearSort(true);
 
             //更新職業選框
+            cbSearchClass.SelectedIndexChanged -= SearchChanged;
             selected = cbSearchClass.Text;
             cbSearchClass.Items.Clear();
             cbSearchClass.Items.Add("");
             cbSearchClass.Items.AddRange(DataHelper.Decks.Where(x => !string.IsNullOrEmpty(x.Class))
                 .Select(x => x.Class).Distinct().OrderBy(x => x).Cast<object>().ToArray());
             cbSearchClass.Text = selected;
+            cbSearchClass.SelectedIndexChanged += SearchChanged;
 
             //更新模式選框
+            cbSearchFormat.SelectedIndexChanged -= SearchChanged;
             selected = cbSearchFormat.Text;
             cbSearchFormat.Items.Clear();
             cbSearchFormat.Items.Add("");
             cbSearchFormat.Items.AddRange(DataHelper.Decks.Where(x => !string.IsNullOrEmpty(x.Format))
                 .Select(x => x.Format).Distinct().OrderBy(x => x).Cast<object>().ToArray());
             cbSearchFormat.Text = selected;
+            cbSearchFormat.SelectedIndexChanged += SearchChanged;
 
             //更新分類選框
+            cbSearchCategory.SelectedIndexChanged -= SearchChanged;
             selected = cbSearchCategory.Text;
             cbSearchCategory.Items.Clear();
             cbSearchCategory.Items.Add("");
             cbSearchCategory.Items.AddRange(DataHelper.Decks.Where(x => !string.IsNullOrEmpty(x.Category))
                 .Select(x => x.Category).Distinct().OrderBy(x => x).Cast<object>().ToArray());
             cbSearchCategory.Text = selected;
+            cbSearchCategory.SelectedIndexChanged += SearchChanged;
 
             //更新牌組表單顯示
-            UpdateDeckView();
+            UpdateDeckView(reflashType);
         }
 
         /// <summary>
         /// 更新牌組表單顯示
         /// </summary>
-        private void UpdateDeckView()
+        /// <param name="reflashType">刷新類型</param>
+        private void UpdateDeckView(ReflashType reflashType)
         {
             var source = DataHelper.Decks
                 .Where(x => x.Name.IndexOf(txtSearchName.Text, StringComparison.OrdinalIgnoreCase) >= 0) //名稱
@@ -115,10 +123,31 @@ namespace DecksStorage
 
             lbDeckCount.Text = $"牌組數量: {source.Count}";
 
+            //紀錄當前位置
+            var currentRow = dgvDeck.FirstDisplayedScrollingRowIndex;
+
+            //刷新表單
             dgvDeck.DataSource = new BindingSource
             {
                 DataSource = source
             }; ;
+
+            if (dgvDeck.RowCount < 1) return;
+
+            switch (reflashType)
+            {
+                case ReflashType.Top:
+                    dgvDeck.FirstDisplayedScrollingRowIndex = 0;
+                    break;
+                case ReflashType.Keep:
+                    //設回此位置
+                    dgvDeck.FirstDisplayedScrollingRowIndex = currentRow > 0 && dgvDeck.RowCount > currentRow ? currentRow : 0;
+                    break;
+                case ReflashType.Bottom:
+                    dgvDeck.FirstDisplayedScrollingRowIndex = dgvDeck.RowCount - 1;
+                    break;
+            }
+
         }
 
         /// <summary>
@@ -225,7 +254,7 @@ namespace DecksStorage
                     return;
             }
 
-            DataHelper.UpdateDeck();
+            DataHelper.UpdateDeck(ReflashType.Top);
         }
 
         /// <summary>
@@ -275,7 +304,7 @@ namespace DecksStorage
 
         private void SearchChanged(object sender, EventArgs e)
         {
-            UpdateDeckView();
+            UpdateDeckView(ReflashType.Top);
         }
 
         /// <summary>
@@ -311,14 +340,7 @@ namespace DecksStorage
 
             var decks = File.ReadAllText(dialog.FileName);
 
-            try
-            {
-                DataHelper.Import(decks);
-            }
-            catch
-            {
-                MessageBox.Show("匯入失敗");
-            }
+            DataHelper.Import(decks);
         }
 
         /// <summary>
@@ -383,6 +405,13 @@ namespace DecksStorage
             /// 刪除
             /// </summary>
             Delete
+        }
+
+        public enum ReflashType
+        {
+            Top,
+            Keep,
+            Bottom
         }
     }
 }

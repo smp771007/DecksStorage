@@ -85,7 +85,7 @@ namespace DecksStorage
 
             lbReplaceResult.Text = $"共取代了{count}個項目。";
 
-            DataHelper.UpdateDeck();
+            DataHelper.UpdateDeck(MainForm.ReflashType.Keep);
         }
 
         public class ComboboxItem
