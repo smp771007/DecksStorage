@@ -166,7 +166,7 @@ namespace DecksStorage
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void dgvDeck_CellClick(object sender, DataGridViewCellEventArgs e)
+        private async void dgvDeck_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //標頭
             if (e.RowIndex == -1)
@@ -181,6 +181,8 @@ namespace DecksStorage
             {
                 case DeckTableColumns.Copy: //複製
                     Clipboard.SetData(DataFormats.Text, deck.Content);
+
+                    await SetBgColor(dgvDeck.Rows[e.RowIndex]);
                     break;
                 case DeckTableColumns.Edit: //修改
                     var form = new EditForm(e.RowIndex, deck);
@@ -190,6 +192,18 @@ namespace DecksStorage
                     DeleteDeck(deck);
                     break;
             }
+        }
+
+        private Task SetBgColor(DataGridViewRow dataGridViewRow)
+        {
+            return Task.Run(async () =>
+            {
+                dataGridViewRow.DefaultCellStyle.BackColor = Color.Aquamarine;
+
+                await Task.Delay(1200);
+
+                dataGridViewRow.DefaultCellStyle.BackColor = Color.Empty;
+            });
         }
 
         /// <summary>
