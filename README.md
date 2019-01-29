@@ -7,6 +7,7 @@
 
 # 下載點
 
+* [v1.0.9 下載點](https://drive.google.com/open?id=1iTR0MuZ_uFnImyq3Ojs9aNJUeThtYXZG)
 * [v1.0.8 下載點](https://drive.google.com/open?id=1SSE64ky3nuLIcVviAyKJd8X5Auobwwyn)
 * [v1.0.7 下載點](https://drive.google.com/open?id=1gGTixBVr4MQuUmLgtrIBqDnUYUBP6Gey)
 * [v1.0.6 下載點](https://drive.google.com/open?id=136M3sgSGZsxuBtkLpPF45LgvTpQp5NOh)
@@ -19,3 +20,6 @@
   - **一鍵複製**牌組，快速導入遊戲內。
   - 清晰簡明的方式**快速搜尋**、**自定義分類**，再也不用找半天。
   - **default_decks**資料夾內有預設牌組，按下**操作>匯入**即可使用，感謝巴友**偶然經過的旅人**的提供
+  
+# 版本更新說明
+* [Wiki](https://github.com/smp771007/DecksStorage/wiki)
