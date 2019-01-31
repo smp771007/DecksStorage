@@ -139,6 +139,7 @@
     <None Include="default_decks\雙開解任務%28190129%29 by 偶然經過的旅人.ds">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="outputs\DecksStorage v1.0.10.7z" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DecksStorage.Models.Deck.datasource" />
     <None Include="Properties\Settings.settings">
