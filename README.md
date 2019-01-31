@@ -7,7 +7,7 @@
 
 # 下載點
 
-* [v1.0.10 下載點](https://drive.google.com/open?id=1zFMJi0_Pk-zFkfxt9GA8RGrrocuuggB3)
+* [v1.0.10 下載點](https://github.com/smp771007/DecksStorage/raw/release/1.0.10/DecksStorage/outputs/DecksStorage%20v1.0.10.7z)
 * [v1.0.9  下載點](https://drive.google.com/open?id=1iTR0MuZ_uFnImyq3Ojs9aNJUeThtYXZG)
 * [v1.0.8  下載點](https://drive.google.com/open?id=1SSE64ky3nuLIcVviAyKJd8X5Auobwwyn)
 * [v1.0.7  下載點](https://drive.google.com/open?id=1gGTixBVr4MQuUmLgtrIBqDnUYUBP6Gey)
