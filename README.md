@@ -7,10 +7,11 @@
 
 # 下載點
 
-* [v1.0.9 下載點](https://drive.google.com/open?id=1iTR0MuZ_uFnImyq3Ojs9aNJUeThtYXZG)
-* [v1.0.8 下載點](https://drive.google.com/open?id=1SSE64ky3nuLIcVviAyKJd8X5Auobwwyn)
-* [v1.0.7 下載點](https://drive.google.com/open?id=1gGTixBVr4MQuUmLgtrIBqDnUYUBP6Gey)
-* [v1.0.6 下載點](https://drive.google.com/open?id=136M3sgSGZsxuBtkLpPF45LgvTpQp5NOh)
+* [v1.0.10 下載點](https://drive.google.com/open?id=1zFMJi0_Pk-zFkfxt9GA8RGrrocuuggB3)
+* [v1.0.9  下載點](https://drive.google.com/open?id=1iTR0MuZ_uFnImyq3Ojs9aNJUeThtYXZG)
+* [v1.0.8  下載點](https://drive.google.com/open?id=1SSE64ky3nuLIcVviAyKJd8X5Auobwwyn)
+* [v1.0.7  下載點](https://drive.google.com/open?id=1gGTixBVr4MQuUmLgtrIBqDnUYUBP6Gey)
+* [v1.0.6  下載點](https://drive.google.com/open?id=136M3sgSGZsxuBtkLpPF45LgvTpQp5NOh)
 
 若無法使用，請下載安裝 [Microsoft .NET Framework 4.5.1](https://www.microsoft.com/zh-tw/download/details.aspx?id=40779)
 
