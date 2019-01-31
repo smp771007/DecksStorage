@@ -36,9 +36,14 @@ namespace DecksStorage
             }
         }
 
-        internal static GetOutput Get(Form form)
+        /// <summary>
+        /// 取得表單狀態
+        /// </summary>
+        /// <param name="form"></param>
+        /// <returns></returns>
+        internal static FormInfo Get(Form form)
         {
-            var output = new GetOutput
+            var info = new FormInfo
             {
                 State = form.WindowState
             };
@@ -46,20 +51,20 @@ namespace DecksStorage
             if (form.WindowState == FormWindowState.Normal)
             {
                 // save location and size if the state is normal
-                output.Location = form.Location;
-                output.Size = form.Size;
+                info.Location = form.Location;
+                info.Size = form.Size;
             }
             else
             {
                 // save the RestoreBounds if the form is minimized or maximized!
-                output.Location = form.RestoreBounds.Location;
-                output.Size = form.RestoreBounds.Size;
+                info.Location = form.RestoreBounds.Location;
+                info.Size = form.RestoreBounds.Size;
             }
 
-            return output;
+            return info;
         }
 
-        internal class GetOutput
+        internal class FormInfo
         {
             public FormWindowState State { get; internal set; }
             public Point Location { get; internal set; }
