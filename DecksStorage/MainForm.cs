@@ -180,22 +180,28 @@ namespace DecksStorage
             switch ((DeckTableColumns)e.ColumnIndex)
             {
                 case DeckTableColumns.Copy: //複製
-                    Clipboard.SetData(DataFormats.Text, deck.Content);
-
-                    await SetBgColor(dgvDeck.Rows[e.RowIndex]);
+                    await CopyDeck(deck, dgvDeck.Rows[e.RowIndex]);
                     break;
                 case DeckTableColumns.Edit: //修改
                     var form = new EditForm(e.RowIndex, deck);
                     form.ShowDialog(this);
                     break;
                 case DeckTableColumns.Delete: //刪除
-                    DeleteDeck(deck);
+                    DeleteDeck(deck, dgvDeck.Rows[e.RowIndex]);
                     break;
             }
         }
 
-        private Task SetBgColor(DataGridViewRow dataGridViewRow)
+        /// <summary>
+        /// 設定背景色
+        /// </summary>
+        /// <param name="deck"></param>
+        /// <param name="dataGridViewRow"></param>
+        /// <returns></returns>
+        private Task CopyDeck(Deck deck, DataGridViewRow dataGridViewRow)
         {
+            Clipboard.SetData(DataFormats.Text, deck.Content);
+
             return Task.Run(async () =>
             {
                 dataGridViewRow.DefaultCellStyle.BackColor = Color.Aquamarine;
@@ -293,13 +299,21 @@ namespace DecksStorage
         /// 刪除牌組
         /// </summary>
         /// <param name="deck"></param>
-        private void DeleteDeck(Deck deck)
+        private void DeleteDeck(Deck deck, DataGridViewRow dataGridViewRow)
         {
-            var confirmResult = MessageBox.Show($"確定要刪除此牌組({deck.Name})?", "刪除", MessageBoxButtons.YesNo);
+            dataGridViewRow.DefaultCellStyle.BackColor = Color.PaleVioletRed;
 
-            if (confirmResult != DialogResult.Yes) return;
+            var confirmResult = YesNoBox.Show($"確定要刪除此牌組({deck.Name})?", "刪除");
 
-            DataHelper.DeleteDeck(deck);
+            if (confirmResult == DialogResult.Yes)
+            {
+                DataHelper.DeleteDeck(deck);
+            }
+            else
+            {
+                dataGridViewRow.DefaultCellStyle.BackColor = Color.Empty;
+            }
+
         }
 
         /// <summary>
@@ -309,7 +323,7 @@ namespace DecksStorage
         /// <param name="e"></param>
         private void menuClearDecks_Click(object sender, EventArgs e)
         {
-            var confirmResult = MessageBox.Show($"確定要清空所有牌組資訊嗎?", "刪除", MessageBoxButtons.YesNo);
+            var confirmResult = YesNoBox.Show($"確定要清空所有牌組資訊嗎?", "刪除");
 
             if (confirmResult != DialogResult.Yes) return;
 
@@ -375,10 +389,13 @@ namespace DecksStorage
             }
 
             File.WriteAllText(dialog.FileName, JsonConvert.SerializeObject(UserData.Data.Decks));
-
-            MessageBox.Show("匯出完成");
         }
 
+        /// <summary>
+        /// 替換文字Form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ReplaceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = new ReplaceForm();
